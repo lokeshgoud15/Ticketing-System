@@ -103,7 +103,9 @@ export const login = async (req, res) => {
     }
     const existingUser = await User.findOne({ email });
     if (!existingUser) {
-      return res.status(400).json({ message: "if you are invited then signup" });
+      return res
+        .status(400)
+        .json({ message: "if you are invited then signup" });
     }
 
     const isPasswordSame = await bcrypt.compare(
@@ -129,6 +131,7 @@ export const login = async (req, res) => {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
         secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
       })
       .json({ message: "Login successful", success: true, user: userData });
   } catch (error) {
@@ -196,5 +199,3 @@ export const updateProfile = async (req, res) => {
     console.log(error);
   }
 };
-
-
