@@ -1,8 +1,8 @@
-import "./Chatbot.css";
+import "./ChatBot.css";
 import ellipse from "../../assets/ellipse.png";
 import ChatBox from "../ChatBox/ChatBox";
 import { MdEdit } from "react-icons/md";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setBgColor,
@@ -44,7 +44,6 @@ const Chatbot = () => {
   const [seconds, setSeconds] = useState(0);
 
   const handleSave = () => {
-    
     dispatch(
       setMissedChatTimer(
         `${hours < 10 ? "0" + hours : hours}-${
@@ -148,7 +147,12 @@ const Chatbot = () => {
                 onClick={(e) => {
                   handleEdit(e);
                 }}
-                style={{ position: "absolute", right: "70px", top: "5px" ,cursor:'pointer'}}
+                style={{
+                  position: "absolute",
+                  right: "70px",
+                  top: "5px",
+                  cursor: "pointer",
+                }}
                 className="first-message-edit-btn"
               />
             </div>
@@ -167,7 +171,12 @@ const Chatbot = () => {
                 onClick={(e) => {
                   handleEdit2(e);
                 }}
-                style={{ position: "absolute", right: "70px", top: "5px" ,cursor:'pointer'}}
+                style={{
+                  position: "absolute",
+                  right: "70px",
+                  top: "5px",
+                  cursor: "pointer",
+                }}
                 className="second-message-edit-btn"
               />
             </div>
