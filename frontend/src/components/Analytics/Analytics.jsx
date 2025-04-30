@@ -258,7 +258,7 @@ const Analytics = () => {
                 alignItems="center"
               >
                 <Typography variant="p" component="div" color="text.primary">
-                  {totalTickets > 0
+                  {totalTickets && totalTickets > 0
                     ? `${Math.round(
                         ((resolvedTickets * 100) / totalTickets).toFixed(2)
                       )}%`
