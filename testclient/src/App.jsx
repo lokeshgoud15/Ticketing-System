@@ -1,20 +1,21 @@
-import './App.css'
-import player from "../../frontend/src/assets/player.png"; 
-import displayImage from "../../frontend/src/assets/displayImage.png"; 
-import messageImage from "../../frontend/src/assets/Group.png"; 
-import ellipse from "../../frontend/src/assets/ellipse.png"; 
-import exampleChart from "../../frontend/src/assets/exampleChart.png"; 
+import { useEffect, useState } from "react";
+import "./App.css";
+import player from "./assets/assets/player.png";
+import displayImage from "./assets/assets/displayImage.png";
+import messageImage from "./assets/assets/Group.png";
+import ellipse from "./assets/assets/ellipse.png";
+import exampleChart from "./assets/assets/exampleChart.png";
 
 import { FaArrowRight } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
-import ChatBox from "../../frontend/src/components/ChatBox/ChatBox";
-import { setIsChatBoxOpen } from "../../frontend/src/Slices/ChatbotcustomSlice";
-import { useEffect, useState } from "react";
-import Header from '../../frontend/src/components/Header/Header';
+
+import Header from "./components/Header/Header/Header";
+import ChatBox from "./components/Chatbox/ChatBox";
 
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { setIsChatBoxOpen } from "./Slices/ChatbotcustomSlice";
 
 const App = () => {
   const [close, setClose] = useState(false);
@@ -39,7 +40,7 @@ const App = () => {
 
   return (
     <div className="body">
-      <Header/>
+      <Header />
       <div className="middle-body">
         {" "}
         <div className="text-section">
@@ -81,7 +82,7 @@ const App = () => {
             </LocalizationProvider>
           </div>
           <div className="example-chart">
-            <img  src={exampleChart} alt="" />
+            <img src={exampleChart} alt="" />
           </div>
         </div>
       </div>
@@ -122,7 +123,6 @@ const App = () => {
         </div>
       )}
       <div className="modalbox">{isChatBoxOpen && <ChatBox />}</div>
-      
     </div>
   );
 };
