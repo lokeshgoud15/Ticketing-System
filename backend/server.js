@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: [
-    "https://ticketing-system-app-1-obz1yauni-lokeshs-projects-f594ae13.vercel.app/",
+    "https://ticketing-system-app-1-obz1yauni-lokeshs-projects-f594ae13.vercel.app",
     "http://localhost:5174",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
@@ -23,11 +23,13 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-// app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+if (process.env.NODE_ENV !== "production") {
+  app.options("*", cors(corsOptions));
+}
 app.use("/api/auth", authRoutes);
 app.use("/api/team", teamRoutes);
 app.use("/api/ticket", ticketRoutes);
