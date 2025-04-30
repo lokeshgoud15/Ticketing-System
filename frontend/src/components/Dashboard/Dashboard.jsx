@@ -21,6 +21,9 @@ const Dashboard = () => {
           `${import.meta.env.VITE_BACKEND_URL}/api/ticket/alltickets`,
           {
             credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
         );
         const data = await response.json();
@@ -39,7 +42,12 @@ const Dashboard = () => {
       try {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/ticket/resolvedtickets`,
-          { credentials: "include" }
+          {
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
         const data = await response.json();
         setResolvedTickets(data);
@@ -56,7 +64,12 @@ const Dashboard = () => {
       try {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/ticket/unresolvedtickets`,
-          { credentials: "include" }
+          {
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
         const data = await response.json();
         setUnresolvedTickets(data);
