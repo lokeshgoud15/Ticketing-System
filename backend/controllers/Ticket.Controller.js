@@ -1,7 +1,7 @@
-import Ticket from "../models/Ticket.Model.js";
 import User from "../models/User.model.js";
 import Team from "../models/Team.models.js";
 import Message from "../models/Messages.Model.js";
+import Ticket from "../models/Ticket.Model.js";
 
 export const createTicket = async (req, res) => {
   const { description, createdBy, title } = req.body;
@@ -313,13 +313,11 @@ export const openResolvedTicket = async (req, res) => {
       { new: true }
     );
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Ticket opened successfully",
-        updatedTicket,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Ticket opened successfully",
+      updatedTicket,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
     console.log(error);
