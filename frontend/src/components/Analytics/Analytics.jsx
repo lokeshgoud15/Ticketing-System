@@ -24,7 +24,6 @@ ChartJS.register(
 );
 import { CircularProgress, Box, Typography } from "@mui/material";
 
-
 const Analytics = () => {
   const [totalChats, setTotalChats] = useState(0);
   const [totalTickets, setTotalTickets] = useState(1);
@@ -47,7 +46,7 @@ const Analytics = () => {
         );
 
         const output = await res.json();
-        setTotalChats(output?.allMessages.length);
+        setTotalChats(output?.allMessages?.length);
       } catch (error) {
         console.error(error);
       }
@@ -177,7 +176,9 @@ const Analytics = () => {
     const getMissedChatTime = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/messages/missed-chat-time/all`,
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/messages/missed-chat-time/all`,
           {
             method: "GET",
             credentials: "include",
@@ -257,9 +258,11 @@ const Analytics = () => {
                 alignItems="center"
               >
                 <Typography variant="p" component="div" color="text.primary">
-                  {`${Math.round(
-                    ((resolvedTickets * 100) / totalTickets).toFixed(2)
-                  )}% `}
+                  {totalTickets > 0
+                    ? `${Math.round(
+                        ((resolvedTickets * 100) / totalTickets).toFixed(2)
+                      )}%`
+                    : "0%"}
                 </Typography>
               </Box>
             </Box>
