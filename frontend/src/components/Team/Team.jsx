@@ -15,13 +15,16 @@ const Team = () => {
 
   useEffect(() => {
     const fetchAllMembers = async () => {
-      const res = await fetch(`http://localhost:5000/api/team/all-members`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/team/all-members`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
       const data = await res.json();
 
       setAllMembers(data.registeredMembers);
@@ -74,7 +77,7 @@ const Team = () => {
           </div>
         )}
       </div>
-      {addMembersBtn && <AddMembers  showToast={handleToast} />}
+      {addMembersBtn && <AddMembers showToast={handleToast} />}
       <ToastContainer />
     </div>
   );

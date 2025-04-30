@@ -37,7 +37,9 @@ const Ticket = ({ eachTicket }) => {
     if (openThisTicket.status === "resolved") {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/ticket/open/${openThisTicket._id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/ticket/open/${
+            openThisTicket._id
+          }`,
           {
             method: "PATCH",
             headers: {

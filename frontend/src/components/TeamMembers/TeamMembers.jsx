@@ -20,13 +20,16 @@ const TeamMembers = ({
 
   const deleteMember = async (person) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/team/${person._id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/team/${person._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
       const data = await res.json();
 
       if (data.success) {

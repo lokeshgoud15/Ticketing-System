@@ -22,24 +22,26 @@ const Profile = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
 
     try {
       //update the user profile and logout
-      const res = await fetch(`http://localhost:5000/api/auth/update`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          firstName: profileData.firstName,
-          lastName: profileData.lastName,
-          email: profileData.email,
-          password: profileData.password,
-          confirmPassword: profileData.confirmPassword,
-        }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/update`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            firstName: profileData.firstName,
+            lastName: profileData.lastName,
+            email: profileData.email,
+            password: profileData.password,
+            confirmPassword: profileData.confirmPassword,
+          }),
+        }
+      );
       const data = await res.json();
       if (data.success) {
         toast.success(data.message);

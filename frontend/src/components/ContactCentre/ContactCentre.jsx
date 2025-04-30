@@ -43,7 +43,7 @@ const ContactCentre = () => {
     const getAllUserCreatedTickets = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/ticket/allusers",
+          `${import.meta.env.VITE_BACKEND_URL}/api/ticket/allusers`,
           { credentials: "include" }
         );
 
@@ -64,7 +64,7 @@ const ContactCentre = () => {
     const fetchAllTickets = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/ticket/alltickets",
+          `${import.meta.env.VITE_BACKEND_URL}/api/ticket/alltickets`,
           { credentials: "include" }
         );
         const data = await response.json();
@@ -88,18 +88,21 @@ const ContactCentre = () => {
   const sendNewMessage = async () => {
     if (!message.trim()) return;
     try {
-      const res = await fetch("http://localhost:5000/api/messages/newmessage", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ticketId: activeChatTicket._id,
-          content: message,
-          recieverId: activeChat._id,
-        }),
-        credentials: "include",
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/messages/newmessage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ticketId: activeChatTicket._id,
+            content: message,
+            recieverId: activeChat._id,
+          }),
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       toast.success(data.message);
@@ -127,7 +130,9 @@ const ContactCentre = () => {
         setLoading(true);
         try {
           const res = await fetch(
-            `http://localhost:5000/api/messages/${activeChatTicket._id}`,
+            `${import.meta.env.VITE_BACKEND_URL}/api/messages/${
+              activeChatTicket._id
+            }`,
             {
               method: "GET",
 
@@ -162,7 +167,7 @@ const ContactCentre = () => {
     const fetchTeamMates = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/team/all-members",
+          `${import.meta.env.VITE_BACKEND_URL}/api/team/all-members`,
           { credentials: "include" }
         );
 
@@ -195,7 +200,9 @@ const ContactCentre = () => {
   const assignTicket = async (teammateId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/ticket/assign/${activeChatTicket._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/ticket/assign/${
+          activeChatTicket._id
+        }`,
         {
           method: "PATCH",
           headers: {
@@ -238,7 +245,9 @@ const ContactCentre = () => {
   const updateTicketStatus = async (status) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/ticket/status/${activeChatTicket._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/ticket/status/${
+          activeChatTicket._id
+        }`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -259,14 +268,14 @@ const ContactCentre = () => {
           setAllTicketCreatedUser(updatedUsers);
 
           const nextActiveChat = updatedUsers[0];
-         
+
           dispatch(setActiveChat(nextActiveChat));
           const nextTicket = tickets.find(
             (ticket) =>
               ticket.createdBy.email === nextActiveChat.email &&
               ticket.status === "unresolved"
           );
-        
+
           dispatch(setActiveChatTicket(nextTicket));
         } else {
           dispatch(setActiveChat(null));

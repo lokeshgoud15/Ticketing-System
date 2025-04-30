@@ -86,7 +86,7 @@ const ChatBox = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/ticket/create-ticket`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/ticket/create-ticket`,
         {
           method: "POST",
           headers: {
@@ -114,7 +114,7 @@ const ChatBox = () => {
   const fetchMessages = async (ticketData = newTicket) => {
     if (ticketData.createdBy.email) {
       try {
-        const res = await fetch(`http://localhost:5000/api/messages`, {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/messages`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

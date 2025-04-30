@@ -36,7 +36,7 @@ const Analytics = () => {
     const fetchAllMessages = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/messages/all-messages/all",
+          `${import.meta.env.VITE_BACKEND_URL}/api/messages/all-messages/all`,
           {
             method: "GET",
             headers: {
@@ -60,7 +60,7 @@ const Analytics = () => {
     const fetchAllTickets = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/ticket/alltickets",
+          `${import.meta.env.VITE_BACKEND_URL}/api/ticket/alltickets`,
           {
             credentials: "include",
           }
@@ -79,7 +79,7 @@ const Analytics = () => {
     const fetchResolvedTickets = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/ticket/resolvedtickets",
+          `${import.meta.env.VITE_BACKEND_URL}/api/ticket/resolvedtickets`,
           { credentials: "include" }
         );
         const data = await response.json();
@@ -157,7 +157,7 @@ const Analytics = () => {
     const getAvgReplyTime = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/messages/avg-reply-time/all",
+          `${import.meta.env.VITE_BACKEND_URL}/api/messages/avg-reply-time/all`,
           {
             method: "GET",
             credentials: "include",
@@ -177,7 +177,7 @@ const Analytics = () => {
     const getMissedChatTime = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/messages/missed-chat-time/all",
+          `${import.meta.env.VITE_BACKEND_URL}/api/messages/missed-chat-time/all`,
           {
             method: "GET",
             credentials: "include",

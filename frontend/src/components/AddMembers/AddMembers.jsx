@@ -29,7 +29,7 @@ const AddMembers = ({ showToast }) => {
     }
     try {
       const res = await fetch(
-        `http://localhost:5000/api/team/${user._id}/invite`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/team/${user._id}/invite`,
         {
           method: "POST",
           headers: {

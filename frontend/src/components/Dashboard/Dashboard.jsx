@@ -17,9 +17,12 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAllTickets = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/ticket/alltickets", {
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/ticket/alltickets`,
+          {
+            credentials: "include",
+          }
+        );
         const data = await response.json();
         setAllTickets(data);
         setFilteredTickets(data);
@@ -30,13 +33,12 @@ const Dashboard = () => {
     fetchAllTickets();
   }, []);
 
-  
   // Fetch resolved tickets
   useEffect(() => {
     const fetchResolvedTickets = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/ticket/resolvedtickets",
+          `${import.meta.env.VITE_BACKEND_URL}/api/ticket/resolvedtickets`,
           { credentials: "include" }
         );
         const data = await response.json();
@@ -48,13 +50,12 @@ const Dashboard = () => {
     fetchResolvedTickets();
   }, []);
 
-  
   // Fetch unresolved tickets
   useEffect(() => {
     const fetchUnresolvedTickets = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/ticket/unresolvedtickets",
+          `${import.meta.env.VITE_BACKEND_URL}/api/ticket/unresolvedtickets`,
           { credentials: "include" }
         );
         const data = await response.json();
@@ -65,8 +66,6 @@ const Dashboard = () => {
     };
     fetchUnresolvedTickets();
   }, []);
-
-
 
   useEffect(() => {
     const filterTickets = () => {
@@ -97,7 +96,13 @@ const Dashboard = () => {
     };
 
     filterTickets();
-  }, [searchInput, activeButton, allTickets, resolvedTickets, unresolvedTickets]);
+  }, [
+    searchInput,
+    activeButton,
+    allTickets,
+    resolvedTickets,
+    unresolvedTickets,
+  ]);
 
   return (
     <div className="dashboard-container">
