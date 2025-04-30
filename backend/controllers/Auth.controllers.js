@@ -116,13 +116,9 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const token = await jwt.sign(
-      { id: existingUser._id },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "1d",
-      }
-    );
+    const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
     const { password: pass, ...userData } = existingUser._doc;
 
     res
@@ -131,7 +127,7 @@ export const login = async (req, res) => {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       })
       .json({ message: "Login successful", success: true, user: userData });
   } catch (error) {
