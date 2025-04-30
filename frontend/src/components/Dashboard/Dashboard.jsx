@@ -20,7 +20,8 @@ const Dashboard = () => {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/ticket/alltickets`,
           {
-            credentials: "include",
+            method: "GET",
+            credentials: "include", 
             headers: {
               "Content-Type": "application/json",
             },
@@ -43,6 +44,7 @@ const Dashboard = () => {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/ticket/resolvedtickets`,
           {
+            method: "GET",
             credentials: "include",
             headers: {
               "Content-Type": "application/json",
@@ -65,7 +67,8 @@ const Dashboard = () => {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/ticket/unresolvedtickets`,
           {
-            credentials: "include",
+            method: "GET",
+            credentials: "include", 
             headers: {
               "Content-Type": "application/json",
             },
