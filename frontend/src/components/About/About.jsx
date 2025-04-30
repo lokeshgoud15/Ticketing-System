@@ -1,6 +1,7 @@
 import "./About.css";
-
 import socialMedia from "../../assets/socialmedia.png";
+
+
 const About = () => {
   return (
     <div className="about">

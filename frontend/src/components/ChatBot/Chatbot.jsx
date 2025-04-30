@@ -15,6 +15,9 @@ import {
 
 let colors = ["#ffffff", "#000000", "#33475b"];
 let bgcolors = ["#ffffff", "#000000", "#eeeeee"];
+
+
+
 const Chatbot = () => {
   const customisations = useSelector((store) => store.chatbox.customisations);
   const user = useSelector((store) => store.user.user);

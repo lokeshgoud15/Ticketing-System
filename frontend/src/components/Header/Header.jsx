@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import hublyImage from "../../assets/hubly.png";
 import "./Header.css";
+
+
 const Header = () => {
   return (
     <div className="header">

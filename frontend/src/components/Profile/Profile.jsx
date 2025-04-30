@@ -4,6 +4,8 @@ import "./Profile.css";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+
+
 const Profile = () => {
   const user = useSelector((store) => store.user.user);
   const navigate = useNavigate();

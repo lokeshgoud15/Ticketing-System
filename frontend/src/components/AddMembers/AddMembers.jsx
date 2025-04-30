@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { setAddMembersBtn } from "../../Slices/userSlice";
 import "./AddMembers.css";
 import { useDispatch, useSelector } from "react-redux";
+
 const AddMembers = ({ showToast }) => {
   const user = useSelector((store) => store.user.user);
   const isEditable = useSelector((store) => store.user.isEditable);

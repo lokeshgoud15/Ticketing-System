@@ -23,7 +23,7 @@ ChartJS.register(
   Legend
 );
 import { CircularProgress, Box, Typography } from "@mui/material";
-import { getAvgReplyTime } from "../../../../backend/controllers/Messages.Controller";
+
 
 const Analytics = () => {
   const [totalChats, setTotalChats] = useState(0);
