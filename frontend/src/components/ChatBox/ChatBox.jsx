@@ -112,7 +112,7 @@ const ChatBox = () => {
   };
 
   const fetchMessages = async (ticketData = newTicket) => {
-    if (ticketData.createdBy.email) {
+    if (ticketData.createdBy.email ) {
       try {
         const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/messages`, {
           method: "POST",
@@ -135,7 +135,7 @@ const ChatBox = () => {
     if (mydetails) {
       setNewTicket((prev) => ({ ...prev, createdBy: mydetails }));
       setIntroSubmitted(true);
-      !user && fetchMessages({ ...newTicket, createdBy: mydetails });
+      !user && introSubmitted && fetchMessages({ ...newTicket, createdBy: mydetails });
     }
   }, []);
 
