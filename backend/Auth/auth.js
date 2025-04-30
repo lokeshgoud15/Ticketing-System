@@ -9,7 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 export const authenticated = async (req, res, next) => {
   try {
-    const token = req.cookies.token;
+    const token = req.cookies.authToken;
 
     if (!token) {
       console.log("user unauthorised");
@@ -26,10 +26,7 @@ export const authenticated = async (req, res, next) => {
 
     req.user = user;
     next();
-    return;
   } catch (error) {
     res.status(500).json({ message: error.message });
-    console.log(error);
-    return;
   }
 };
