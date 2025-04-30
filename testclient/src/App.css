@@ -237,8 +237,8 @@ body {
   .modalbox {
     position: fixed;
     height: 480px;
-    bottom: 200px;
-    right: 8px;
+    bottom: 180px;
+    right: 15px;
     z-index: 1;
   }
 
@@ -292,7 +292,7 @@ body {
     right: 20px;
     padding: 10px;
   }
-  
+
   .companies-about {
     width: 100%;
     padding: 20px;
