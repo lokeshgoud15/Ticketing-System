@@ -1,5 +1,5 @@
 import Message from "../models/Messages.Model.js";
-import Ticket from "../models/Ticket.Model.js";
+import Ticket from "../models/Ticket.model.js";
 import User from "../models/User.model.js";
 
 export const getMessages = async (req, res) => {

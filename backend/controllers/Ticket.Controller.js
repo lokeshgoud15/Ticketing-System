@@ -1,7 +1,7 @@
 import User from "../models/User.model.js";
 import Team from "../models/Team.models.js";
 import Message from "../models/Messages.Model.js";
-import Ticket from "../models/Ticket.Model.js";
+import Ticket from "../models/Ticket.model.js";
 
 export const createTicket = async (req, res) => {
   const { description, createdBy, title } = req.body;
