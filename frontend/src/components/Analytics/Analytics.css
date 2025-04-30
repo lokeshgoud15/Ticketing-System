@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+.analytics-container {
+  width: 90vw;
+  margin-left: 30px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  margin-bottom: 60px;
+}
+
+.analytics-text {
+  font-size: 18px !important;
+  font-family: "Inter", sans-serif;
+  color: #333;
+  margin: 24px 24px 24px 0;
+  padding: 24px 24px 24px 0;
+}
+.analytics-head {
+  display: flex;
+
+  flex-direction: column;
+}
+.analytics-graph {
+  width: 650px;
+}
+
+.analytics-graph > h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #00d907;
+}
+.avg-reply-time,
+.analytics-resolved-tickets,
+.analytics-total-chats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 750px;
+}
+.avg-reply-time {
+  margin-top: 40px;
+}
+.analytics-resolved-tickets {
+  margin-top: 40px;
+}
+.analytics-total-chats {
+  margin-top: 40px;
+}
+.avg-reply-time,
+.analytics-resolved-tickets,
+.analytics-total-chats {
+  width: 750px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.analytics-desc > h2 {
+  color: #00d907;
+  font-size: 24px;
+}
+.analytics-desc {
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  color: #333;
+}
+.avg-reply-time span,
+.analytics-resolved-tickets span,
+.analytics-total-chats span {
+  display: inline-block;
+  width: 114px;
+  text-align: center;
+  color: #00d907;
+  font-size: 24px;
+  font-weight: 600;
+}
+.analytics-percentage {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}

@@ -1,0 +1,233 @@
+.subscribe {
+  width: 100%;
+  height: 1030px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  background-color: #f8fbfe;
+  padding: 0 120px;
+  padding-top: 80px;
+  padding-top: 80px;
+  overflow: hidden;
+}
+.subscribe-head {
+  width: 725px;
+  margin: 0 auto;
+}
+.subscribe-head > h2 {
+  text-align: center;
+  font-size: 44px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: "Barlow", sans-serif;
+  color: #30404d;
+}
+
+.subscribe-head > p {
+  text-align: center;
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  color: #30404d;
+}
+.subscribe-body {
+  height: 600px;
+  display: flex;
+  gap: 30px;
+}
+.starter-plan {
+  width: 625px;
+  height: 700px;
+  margin: 0;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  gap: 20px;
+  background-color: white;
+}
+.grow-plan {
+  width: 625px;
+  height: 700px;
+  margin: 0;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  gap: 20px;
+  background-color: white;
+}
+.grow-price,
+.starter-price {
+  font-size: 54px;
+  font-weight: bold;
+  font-family: "Barlow", sans-serif;
+  color: #30404d;
+}
+.grow-price span,
+.starter-price span {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Barlow", sans-serif;
+  color: #98a8b3;
+}
+.starter-features,
+.grow-features {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+.starter-features > h5,
+.grow-features > h5 {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Barlow", sans-serif;
+  color: #30404d;
+}
+.starter-features > p,
+.grow-features > p {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Barlow", sans-serif;
+  color: #30404d;
+}
+.tick {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: #e1eefa;
+  border-radius: 50%;
+  text-align: center;
+  color: #2f5f8b;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sign-up-for-starter,
+.sign-up-for-grow {
+  width: 100%;
+  padding: 20px 36px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  border: 1px solid rgb(166, 166, 166);
+  gap: 24px;
+  text-align: center;
+  color: #244779;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  cursor: pointer;
+  margin-top: auto;
+}
+@media (max-width: 450px) {
+  .subscribe {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8fbfe;
+    display: none;/* to be removed */
+  }
+
+  .subscribe-head {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .subscribe-head > h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: "Barlow", sans-serif;
+    color: #30404d;
+  }
+
+  .subscribe-head > p {
+    text-align: center;
+    font-size: 14px;
+    font-family: "Barlow", sans-serif;
+    color: #30404d;
+  }
+
+  .subscribe-body {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+
+  .starter-plan,
+  .grow-plan {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    gap: 15px;
+  }
+
+  .grow-price,
+  .starter-price {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: "Barlow", sans-serif;
+    color: #30404d;
+  }
+
+  .grow-price span,
+  .starter-price span {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Barlow", sans-serif;
+    color: #98a8b3;
+  }
+
+  .starter-features,
+  .grow-features {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .starter-features > h5,
+  .grow-features > h5 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Barlow", sans-serif;
+    color: #30404d;
+  }
+
+  .starter-features > p,
+  .grow-features > p {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Barlow", sans-serif;
+    color: #30404d;
+  }
+
+  .tick {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .feature {
+    gap: 10px;
+  }
+
+  .sign-up-for-starter,
+  .sign-up-for-grow {
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+  }
+}

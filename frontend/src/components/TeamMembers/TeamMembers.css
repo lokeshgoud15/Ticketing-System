@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+.team-member-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93vw;
+  z-index: 1;
+}
+.team-member-image {
+  text-align: center;
+}
+.team-member-header {
+  display: flex;
+  gap: 20px;
+  margin-left: 24px;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+}
+.team-member-headings {
+  font-size: 16px;
+  width: 200px;
+  padding: 10px;
+  font-family: "Inter", sans-serif;
+  text-overflow: clip;
+  word-wrap: break-word;
+}
+.team-member-actions {
+  display: flex;
+  gap: 20px;
+  margin-right: 24px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px;
+  margin-top: 14px;
+}
+.edit-btn,
+.dlt-btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}

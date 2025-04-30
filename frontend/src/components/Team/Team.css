@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+.team-container {
+  height: 100vh;
+  width: 92vw;
+  position: relative;
+}
+.team-container p {
+  padding: 24px;
+  font-family: "Inter", sans-serif;
+  color: #686868;
+}
+.team-header {
+  display: flex;
+  padding-left: 24px;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+  border-top: 1px solid rgb(125, 125, 125);
+  border-bottom: 1px solid rgb(125, 125, 125);
+  color: #184e7f;
+}
+
+.team-headings {
+  font-size: 16px;
+  min-width: 200px;
+  padding: 10px;
+  font-family: "Inter", sans-serif;
+}
+.add-members-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  float: right;
+  margin-top: 20px;
+  background-color: #0f3c6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease;
+  margin-left: auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.add-members-btn:hover {
+  background-color: #184e7f;
+}
+.add-btn {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+.blur {
+  filter: blur(1px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.3s ease;
+}

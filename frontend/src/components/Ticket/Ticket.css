@@ -1,0 +1,108 @@
+.ticket-container {
+  width: 90%;
+  height: 200px;
+  padding: 15px 10px 0px 10px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.ticket-info {
+  height: 117px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+.ticket-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.ticket-info-header-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.ticket-number {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  font-weight: 600;
+}
+.color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background-color: antiquewhite;
+}
+.ticket-desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.ticket-desc-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+.ticket-deadline {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.ticket-hr {
+  height: 1px;
+  background-color: #e3e3e3;
+  color: #ccc;
+  border: none;
+  margin: auto;
+  width: 98%;
+}
+.ticket-assigned-info {
+  padding: 10px 10px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ticket-assigned-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 9px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 12px;
+  color: #504f4f;
+}
+.open-ticket {
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #184e7f;
+  text-decoration: underline;
+  cursor: pointer;
+}

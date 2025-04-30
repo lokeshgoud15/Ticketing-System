@@ -1,0 +1,88 @@
+.add-members-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 724px;
+  height: 500px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  padding: 20px;
+  border-radius: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  background-color: white;
+}
+.add-members-description {
+  font-size: 13px;
+  color: black;
+  font-family: "Inter", sans-serif;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.add-members-container > h2 {
+  font-family: "Inter", sans-serif;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-group label {
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
+}
+
+#designation {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+}
+.add-members-btns {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: end;
+}
+.cancel-member-btn {
+  width: 200px;
+  background-color: #ccc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease;
+}
+.save-member-btn {
+  width: 200px;
+  background-color: #0f3c6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease;
+}
+.add-active {
+  z-index: 9999 !important;
+  opacity: 1;
+  visibility: visible;
+}

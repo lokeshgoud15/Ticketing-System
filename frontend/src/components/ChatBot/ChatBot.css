@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.chatbot-container {
+  /* width: 100%; */
+  margin-left: 34px;
+  font-family: "Poppins", sans-serif;
+}
+.chatbot-text {
+  font-size: 18px !important;
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+  margin: 24px 24px 24px 0 !important;
+  padding: 10px;
+}
+.chatbot-box {
+  display: flex;
+  justify-content: space-between;
+  /* height: 100vh; */
+}
+.chatbot-left {
+  width: 65%;
+  height: 100vh;
+}
+.chatbot-right {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.chatbot-intro {
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 60px;
+  font-size: 14px;
+  width: 240px;
+  height: 116px;
+  background-color: white;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+  position: relative;
+}
+.ellipse-image {
+  position: absolute;
+  top: -15px;
+}
+.close {
+  position: absolute;
+  right: -2px;
+  top: -15px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.headers {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.each-color {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: #7b7979 solid 0.5px;
+  cursor: pointer;
+}
+.headers > p {
+  font-size: 13px;
+  font-weight: 500;
+}
+.color-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.selected-color {
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+  border: #7b7979 solid 0.5px;
+}
+.color-input > input {
+  background-color: #f6f7f5;
+  width: 200px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.intro-text {
+  font-size: 14px;
+  background-color: #f6f7f5;
+  width: 300px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6d6d6d;
+}
+.intro-form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 400px;
+  height: 300px;
+  padding: 20px;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.intro-form > p {
+  font-size: 13px;
+  font-weight: 500;
+}
+textarea {
+  width: 360px;
+  height: 100px;
+  background-color: #f6f7f5;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6d6d6d;
+  border: none;
+  resize: none;
+  padding: 10px;
+}
+
+.timer-container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width:100%;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.picker-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.picker-row select {
+  font-size: 16px;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  appearance: none;
+  background-color: #f3f3f3;
+  text-align: center;
+}
+
+.picker-row span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.save-button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background-color: #195e9a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #144a7a;
+}

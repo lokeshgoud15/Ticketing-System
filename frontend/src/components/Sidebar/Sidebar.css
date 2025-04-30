@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  width: 95px;
+  padding: 10px;
+  gap: 30px;
+  color: #424242;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  border-right: 1px solid #ccc;
+  background-color: #eeeeee;
+  overflow: hidden;
+}
+.sidebar-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sidebar-item {
+  cursor: pointer;
+  width: 74px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.sidebar-item > p {
+  font-size: 10px;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.profile-icon {
+  cursor: pointer;
+  position: relative;
+}
+.profile-icon {
+  cursor: pointer;
+}
+.logout-btn {
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #184e7f;
+  color: white;
+}

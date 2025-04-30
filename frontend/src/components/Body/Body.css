@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  position: relative;
+  background-color: #f8fbfe;
+  overflow-x: hidden;
+}
+.body {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  background-color: white;
+}
+.middle-body {
+  padding: 0 120px;
+  align-self: flex-end;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  gap: 60px;
+  padding-top: 50px;
+  padding-bottom: 150px;
+  background-color: #f8fbfe;
+
+}
+.text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 261px;
+  width: 666px;
+  font-family: "Barlow", sans-serif;
+}
+.text-section > h1 {
+  font-size: 54px;
+  font-weight: bold;
+  color: #30404d;
+}
+.image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 434px;
+  height: 448px;
+  position: relative;
+}
+.calendar {
+  width: 242px;
+  height: 180px;
+  position: absolute;
+  bottom: -20%;
+  left: -20%;
+  z-index: 1;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.35);
+  padding: 5px;
+}
+.example-chart {
+  width: 212px;
+  position: absolute;
+  bottom: -10%;
+  right: -20%;
+  z-index: 1;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.35);
+}
+.example-chart > img {
+  width: 100%;
+}
+.image-section > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.body-buttons {
+  display: flex;
+  gap: 20px;
+}
+.get-started-btn {
+  widows: 166px;
+  height: 50px;
+  background-color: #244779;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn {
+  font-size: 16px;
+  background-color: #244779;
+  border: none;
+  color: white;
+  font-weight: semibold;
+}
+.watch-video {
+  widows: 166px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.video-btn {
+  font-size: 22px;
+  font-weight: semibold;
+}
+.hubly-text {
+  font-size: 16px;
+}
+.chatbot-logo {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  background-color: #244779;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.message-icon {
+  font-size: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+}
+
+.modalbox {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 1;
+}
+.chatbot-intro-1 {
+  position: fixed;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 60px;
+  font-size: 14px;
+  width: 240px;
+  height: 116px;
+  background-color: white;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+  bottom: 80px;
+  right: 30px;
+  font-family: "Barlow", sans-serif;
+  z-index: 9999;
+}
+.ellipse-images {
+  position: absolute;
+  top: -15px;
+}
+.closed {
+  position: absolute;
+  right: -2px;
+  top: -15px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.companies-about {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Barlow", sans-serif;
+}
+
+@media (max-width: 450px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .body {
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .middle-body {
+    display: none; /* to be removed */
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  .text-section {
+    width: 100%;
+    padding: 0 20px;
+    gap: 15px;
+  }
+
+  .text-section > h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #30404d;
+    text-align: center;
+  }
+
+  .hubly-text {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .image-section {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .modalbox {
+    position: fixed;
+    height: 480px;
+    bottom: 350px;
+    right: 10px;
+    z-index: 1;
+  }
+
+  .image-section > img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .calendar,
+  .example-chart {
+    display: none;
+  }
+
+  .body-buttons {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .get-started-btn,
+  .watch-video {
+    width: 90%;
+    height: 45px;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
+  .video-btn {
+    font-size: 18px;
+  }
+
+  .chatbot-logo {
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .chatbot-intro-1 {
+    width: 200px;
+    height: 100px;
+    font-size: 12px;
+    bottom: 100px;
+    right: 20px;
+    padding: 10px;
+  }
+
+  .companies-about {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+}

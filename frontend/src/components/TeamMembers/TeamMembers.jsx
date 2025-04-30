@@ -1,0 +1,82 @@
+import "./TeamMembers.css";
+import profile from "../../assets/profile.png";
+import { AiTwotoneEdit } from "react-icons/ai";
+import { MdDeleteOutline } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsEditable } from "../../Slices/userSlice";
+
+const TeamMembers = ({
+  person,
+  role,
+  firstname,
+  lastname,
+  email,
+  setAllMembers,
+  showToast,
+}) => {
+  const user = useSelector((store) => store.user.user);
+
+  const dispatch = useDispatch();
+
+  const deleteMember = async (person) => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/team/${person._id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setAllMembers((prevMembers) =>
+          prevMembers.filter((member) => member._id !== person._id)
+        );
+        showToast("success", data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      showToast("error", "Failed to delete member");
+    }
+  };
+  const editMember = () => {
+    dispatch(setIsEditable(true));
+  };
+
+  return (
+    <div className="team-member-container">
+      <div className="team-member-header">
+        <div className="team-member-headings team-member-image">
+          <img src={profile} alt="" />
+        </div>
+        <div className="team-member-headings">{`${firstname}${" "}${lastname}`}</div>
+        <div className="team-member-headings">+1 (000) 000-0000</div>
+        <div className="team-member-headings">{email}</div>
+        <div className="team-member-headings">{role}</div>
+        <div className="team-member-headings"></div>
+      </div>
+      <div className="team-member-actions">
+        {role === "admin" ? (
+          ""
+        ) : (
+          <>
+            {user.role === "admin" && (
+              <AiTwotoneEdit
+                className="edit-btn"
+                onClick={() => editMember()}
+              />
+            )}
+            {user.role === "admin" && (
+              <MdDeleteOutline
+                className="dlt-btn"
+                onClick={() => deleteMember(person)}
+              />
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+export default TeamMembers;
