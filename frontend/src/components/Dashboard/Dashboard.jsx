@@ -94,7 +94,7 @@ const Dashboard = () => {
           ? unresolvedTickets
           : [];
 
-      const filtered = ticketsToFilter.filter((ticket) => {
+      const filtered = ticketsToFilter?.filter((ticket) => {
         const ticketTitle = ticket.title?.toLowerCase() || "";
         const email = ticket?.createdBy?.email?.toLowerCase() || "";
         const personName = ticket?.createdBy?.name?.toLowerCase() || "";
