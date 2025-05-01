@@ -17,7 +17,7 @@ export const createTicket = async (req, res) => {
     const existingTicket = await Ticket.findOne({
       "createdBy.email": createdBy.email,
     });
-    const senderEmail = createdBy.email;
+    const senderEmail = createdBy.email.toLowerCase().trim();
 
     if (existingTicket) {
       if (existingTicket.status === "resolved") {
