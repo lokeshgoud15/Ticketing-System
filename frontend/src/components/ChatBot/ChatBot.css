@@ -101,7 +101,7 @@
   font-weight: 500;
   color: #6d6d6d;
 }
-.intro-form {
+.intro-form-user {
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -110,6 +110,22 @@
   padding: 20px;
   box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+}
+.thanks-btn-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  background-color: #244779;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-left: 90px !important;
+  width: 200px !important;
 }
 .intro-form > p {
   font-size: 13px;
@@ -131,10 +147,12 @@ textarea {
 .timer-container {
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 20px;
-  width:100%;
+  padding: 10px;
+  width: 400px;
   background-color: #ffffff;
   text-align: center;
+  margin-bottom: 40px;
+
 }
 
 .picker-row {
@@ -145,7 +163,7 @@ textarea {
 }
 
 .picker-row select {
-  font-size: 16px;
+  font-size: 25px;
   padding: 5px;
   margin: 0 5px;
   border-radius: 4px;
@@ -161,14 +179,19 @@ textarea {
 }
 
 .save-button {
-  margin-top: 10px;
-  padding: 8px 20px;
-  background-color: #195e9a;
-  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 15px;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
   cursor: pointer;
+  background-color: #244779;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 90px !important;
+  width: 200px !important;
 }
 
 .save-button:hover {

@@ -185,7 +185,7 @@ const Chatbot = () => {
             </div>
           </div>
 
-          <div className="intro-form">
+          <div className="intro-form-user">
             <p>Introduction Form</p>
             <form action="">
               <div className="name">
@@ -215,7 +215,7 @@ const Chatbot = () => {
               <button
                 disabled={user ? true : false}
                 type="submit"
-                className="thanks-btn"
+                className="thanks-btn-user"
               >
                 Thank You!
               </button>

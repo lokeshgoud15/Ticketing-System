@@ -4,7 +4,7 @@ import { FiSend } from "react-icons/fi";
 import "./ChatBox.css";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast, } from "react-toastify";
 import profile from "../../assets/profile.png";
 
 const ChatBox = () => {

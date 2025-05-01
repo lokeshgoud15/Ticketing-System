@@ -115,7 +115,9 @@
   background-color: white;
   padding-left: 5px;
 }
-
+.receiver-chat{
+  margin-top: 20px;
+}
 .name label,
 .email label,
 .phone label {
