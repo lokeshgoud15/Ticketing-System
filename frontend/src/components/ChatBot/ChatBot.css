@@ -155,6 +155,7 @@ textarea {
 .timer-container p {
   font-size: 13px;
   font-weight: 500;
+  margin: 5px 0 0 5px;
 }
 
 .picker-row {
