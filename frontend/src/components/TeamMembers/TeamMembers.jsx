@@ -4,6 +4,7 @@ import { AiTwotoneEdit } from "react-icons/ai";
 import { MdDeleteOutline } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsEditable } from "../../Slices/userSlice";
+import { useState } from "react";
 
 const TeamMembers = ({
   person,
@@ -15,6 +16,7 @@ const TeamMembers = ({
   showToast,
 }) => {
   const user = useSelector((store) => store.user.user);
+  const [deleteActive, setDeleteActive] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -73,12 +75,23 @@ const TeamMembers = ({
             {user.role === "admin" && (
               <MdDeleteOutline
                 className="dlt-btn"
-                onClick={() => deleteMember(person)}
+                onClick={() => setDeleteActive(true)}
               />
             )}
           </>
         )}
       </div>
+      {deleteActive && (
+        <div className="delete-modal">
+          <div className="delete-modal-container">
+            <h1 style={{ fontSize: "16px",fontWeight:"400" }}>this teammate will be deleted.</h1>
+          </div>
+          <div className="delete-modal-btns">
+            <button className="cancel-btn" onClick={() => setDeleteActive(false)}>Cancel</button>
+            <button className="confirm-btn" onClick={() => deleteMember(person)}>Confirm</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
