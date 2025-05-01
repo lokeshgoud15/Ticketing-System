@@ -150,9 +150,11 @@ textarea {
   padding: 10px;
   width: 400px;
   background-color: #ffffff;
-  text-align: center;
   margin-bottom: 40px;
-
+}
+.timer-container p {
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .picker-row {

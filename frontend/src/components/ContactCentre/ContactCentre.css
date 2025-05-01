@@ -3,8 +3,6 @@
 .contact-center-container {
   font-family: "Poppins", sans-serif;
   display: flex;
- 
-  
 }
 .contact-center-text {
   font-size: 18px !important;
@@ -95,11 +93,10 @@ hr {
   font-family: "Inter", sans-serif;
 }
 .chat-middle-section {
- 
   flex: 1;
   overflow-y: auto;
   padding: 10px;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 190px);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -107,7 +104,7 @@ hr {
   scrollbar-width: thin;
   scrollbar-color: #c1c1c1 transparent;
 }
-.chat-middle{
+.chat-middle {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -132,8 +129,7 @@ hr {
 .chat-bottom-section {
   width: 100%;
   flex-shrink: 0;
-  align-self: flex-end;
-  padding: 10px;
+  padding: 5px;
   background-color: #fff;
   position: relative;
 }
@@ -266,4 +262,10 @@ hr {
   height: 30px;
   background-color: #e5e3e3;
   border-radius: 50%;
+}
+.ticket-assigned {
+  margin-top: 50px;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  color: #606060;
 }

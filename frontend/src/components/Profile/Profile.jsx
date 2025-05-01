@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-
 const Profile = () => {
   const user = useSelector((store) => store.user.user);
   const navigate = useNavigate();
@@ -123,7 +122,7 @@ const Profile = () => {
                   <CiCircleInfo className="info-icon" />
                   <span className="tooltiptext">
                     {" "}
-                    User will logout Immediately
+                    You can't change your email
                   </span>
                 </div>
               </div>
@@ -142,7 +141,7 @@ const Profile = () => {
                   <CiCircleInfo className="info-icon" />
                   <span className="tooltiptext">
                     {" "}
-                    User will logout Immediately
+                    Your password must be at least 6 characters
                   </span>
                 </div>
               </div>

@@ -57,9 +57,8 @@ const TeamMembers = ({
         </div>
         <div className="team-member-headings">{`${firstname}${" "}${lastname}`}</div>
         <div className="team-member-headings">+1 (000) 000-0000</div>
-        <div className="team-member-headings">{email}</div>
+        <div className="team-member-headings email">{email}</div>
         <div className="team-member-headings">{role}</div>
-        <div className="team-member-headings"></div>
       </div>
       <div className="team-member-actions">
         {role === "admin" ? (
@@ -67,16 +66,17 @@ const TeamMembers = ({
         ) : (
           <>
             {user.role === "admin" && (
-              <AiTwotoneEdit
-                className="edit-btn"
-                onClick={() => editMember()}
-              />
-            )}
-            {user.role === "admin" && (
-              <MdDeleteOutline
-                className="dlt-btn"
-                onClick={() => setDeleteActive(true)}
-              />
+              <div className="actions">
+                <AiTwotoneEdit
+                  className="edit-btn"
+                  onClick={() => editMember()}
+                />
+
+                <MdDeleteOutline
+                  className="dlt-btn"
+                  onClick={() => setDeleteActive(true)}
+                />
+              </div>
             )}
           </>
         )}
@@ -84,11 +84,23 @@ const TeamMembers = ({
       {deleteActive && (
         <div className="delete-modal">
           <div className="delete-modal-container">
-            <h1 style={{ fontSize: "16px",fontWeight:"400" }}>this teammate will be deleted.</h1>
+            <h1 style={{ fontSize: "16px", fontWeight: "400" }}>
+              this teammate will be deleted.
+            </h1>
           </div>
           <div className="delete-modal-btns">
-            <button className="cancel-btn" onClick={() => setDeleteActive(false)}>Cancel</button>
-            <button className="confirm-btn" onClick={() => deleteMember(person)}>Confirm</button>
+            <button
+              className="cancel-btn"
+              onClick={() => setDeleteActive(false)}
+            >
+              Cancel
+            </button>
+            <button
+              className="confirm-btn"
+              onClick={() => deleteMember(person)}
+            >
+              Confirm
+            </button>
           </div>
         </div>
       )}

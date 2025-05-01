@@ -246,7 +246,7 @@ const Chatbot = () => {
           </div>
 
           <div className="timer-container headers">
-            <h3>Missed chat timer</h3>
+            <p>Missed chat timer</p>
             <div className="picker-row">
               <select
                 value={hours}

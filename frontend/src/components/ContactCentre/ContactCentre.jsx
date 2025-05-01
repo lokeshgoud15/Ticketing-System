@@ -32,6 +32,7 @@ const ContactCentre = () => {
   const [statusDropdownValue, setStatusDropdownValue] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     if (chatMiddleSectionRef.current) {
@@ -46,7 +47,7 @@ const ContactCentre = () => {
           `${import.meta.env.VITE_BACKEND_URL}/api/ticket/allusers`,
           {
             method: "GET",
-            credentials: "include", 
+            credentials: "include",
             headers: {
               "Content-Type": "application/json",
             },
@@ -400,7 +401,26 @@ const ContactCentre = () => {
                   new Date(Allmessages[index - 1]?.createdAt).toDateString() !==
                     new Date(message.createdAt).toDateString()) && (
                   <div className="chat-date">
-                    {formatDate(message.createdAt)}
+                    <div
+                      style={{
+                        height: "1px",
+                        display: "inline-block",
+                        backgroundColor: "#ccc",
+                        color: "#ccc",
+                        width: "40%",
+                        marginBottom: "2px",
+                      }}
+                    ></div>
+                    <span>{formatDate(message.createdAt)}</span>
+                    <div
+                      style={{
+                        height: "1px",
+                        display: "inline-block",
+                        backgroundColor: "#ccc",
+                        width: "40%",
+                        marginBottom: "2px",
+                      }}
+                    ></div>
                   </div>
                 )}
                 <div
@@ -474,7 +494,9 @@ const ContactCentre = () => {
         {activeChatTicket?.assignedTo !== user._id &&
           allTicketCreatedUsers?.length > 0 && (
             <p
-              className="chat-bottom-section"
+              className={`  ${
+                activeChatTicket?.assignedTo !== user._id ? "ticket-assigned" : "chat-bottom-section"
+              }`}
               style={{ fontSize: "14px", textAlign: "center" }}
             >
               This chat is assigned to new team member. you no longer have

@@ -46,12 +46,11 @@ const Team = () => {
       <div className={`team-content ${addMembersBtn ? "blur" : ""}`}>
         <p>Team</p>
         <div className="team-header">
-          <div className="team-headings"></div>
-          <div className="team-headings">Full Name</div>
-          <div className="team-headings">Phone</div>
+          <div className="team-headings empty"></div>
+          <div className="team-headings empty">Full Name</div>
+          <div className="team-headings empty">Phone</div>
           <div className="team-headings">Email</div>
-          <div className="team-headings">role</div>
-          <div className="team-headings"></div>
+          <div className="team-headings empty">role</div>
         </div>
 
         {allMembers?.map((person, index) => (

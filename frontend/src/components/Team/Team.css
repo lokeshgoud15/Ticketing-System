@@ -22,9 +22,12 @@
 
 .team-headings {
   font-size: 16px;
-  min-width: 200px;
+  width: 300px;
   padding: 10px;
   font-family: "Inter", sans-serif;
+}
+.team-headings.empty{
+width: 200px;
 }
 .add-members-btn {
   display: flex;
