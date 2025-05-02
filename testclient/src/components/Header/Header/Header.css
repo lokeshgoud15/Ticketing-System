@@ -5,6 +5,7 @@
   padding: 30px 120px;
   /* width: 95vw; */
   width: 100vw;
+  background-color: #f8fbfe;
 }
 .logo {
   display: flex;

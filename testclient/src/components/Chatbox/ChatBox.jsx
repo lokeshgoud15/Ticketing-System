@@ -245,7 +245,7 @@ const ChatBox = () => {
             color: customisations?.bgcolor === "#ffffff" ? "white" : "",
             display: !user && introSubmitted ? "none" : "",
           }}
-          className="receiver-chat"
+          className="receiver-chat "
         >
           {!introSubmitted && !user && (
             <div className="introduction-home">
