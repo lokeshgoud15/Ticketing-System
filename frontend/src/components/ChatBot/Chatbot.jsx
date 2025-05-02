@@ -58,7 +58,7 @@ const Chatbot = () => {
     const fetchCustomisations = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/chatbox/customisations`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/chatbox/customisations`,
           {
             method: "GET",
             credentials: "include",
@@ -84,7 +84,7 @@ const Chatbot = () => {
       const updateCustomisationsAPI = async () => {
         try {
           const response = await fetch(
-            `http://localhost:5000/api/chatbox/customisations/${user._id}`,
+            `${import.meta.env.VITE_BACKEND_URL}/api/chatbox/customisations/${user._id}`,
             {
               method: "PUT",
               credentials: "include",
