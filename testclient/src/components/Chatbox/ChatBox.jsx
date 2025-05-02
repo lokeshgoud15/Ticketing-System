@@ -162,7 +162,7 @@ const ChatBox = () => {
     const fetchCustomisations = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/chatbox/customisations`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/chatbox/customisations`,
           {
             method: "GET",
             credentials: "include",
