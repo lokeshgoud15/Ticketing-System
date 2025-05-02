@@ -4,13 +4,11 @@ import { FiSend } from "react-icons/fi";
 import "./ChatBox.css";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import { toast, } from "react-toastify";
+import { toast } from "react-toastify";
 import profile from "../../assets/profile.png";
 
-const ChatBox = () => {
+const ChatBox = ({ customisations }) => {
   const user = useSelector((store) => store.user.user);
-
-  const [messageSent, setMessageSent] = useState(false);
   const [Allmessages, setAllMessages] = useState([]);
   const [introSubmitted, setIntroSubmitted] = useState(false);
   const lastMessageRef = useRef(null);
@@ -39,8 +37,6 @@ const ChatBox = () => {
       };
     }
   });
-
-  const customisations = useSelector((store) => store.chatbox.customisations);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -100,7 +96,6 @@ const ChatBox = () => {
       if (data.success) {
         toast.success(data.message);
 
-        setMessageSent((prev) => !prev);
         setNewTicket((prev) => ({ ...prev, description: "" }));
         fetchMessages(ticketData);
       }
@@ -166,8 +161,8 @@ const ChatBox = () => {
       <div
         className="chat-head"
         style={{
-          backgroundColor: customisations.headerColor,
-          color: customisations.headerColor === "#ffffff" ? "black" : "",
+          backgroundColor: customisations?.headerColor,
+          color: customisations?.headerColor === "#ffffff" ? "black" : "",
         }}
       >
         <div className="profile-image">
@@ -178,7 +173,7 @@ const ChatBox = () => {
       </div>
       <div
         className="chat-body"
-        style={{ backgroundColor: customisations.bgcolor }}
+        style={{ backgroundColor: customisations?.bgcolor }}
       >
         <div className="sender-chat">
           <img src={ellipse} alt="" className="ellipse" />
@@ -187,28 +182,28 @@ const ChatBox = () => {
               className="each-message"
               style={{
                 backgroundColor:
-                  customisations.bgcolor === "#ffffff" ? "black" : "",
-                color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                  customisations?.bgcolor === "#ffffff" ? "black" : "",
+                color: customisations?.bgcolor === "#ffffff" ? "white" : "",
               }}
             >
-              {customisations.message1}
+              {customisations?.message1}
             </p>
             <p
               style={{
                 backgroundColor:
-                  customisations.bgcolor === "#ffffff" ? "black" : "",
-                color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                  customisations?.bgcolor === "#ffffff" ? "black" : "",
+                color: customisations?.bgcolor === "#ffffff" ? "white" : "",
               }}
               className="each-message"
             >
-              {customisations.message2}
+              {customisations?.message2}
             </p>
             {!user && (
               <p
                 style={{
                   backgroundColor:
-                    customisations.bgcolor === "#ffffff" ? "black" : "",
-                  color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                    customisations?.bgcolor === "#ffffff" ? "black" : "",
+                  color: customisations?.bgcolor === "#ffffff" ? "white" : "",
                 }}
                 className="each-message"
               >
@@ -221,8 +216,8 @@ const ChatBox = () => {
         <div
           style={{
             backgroundColor:
-              customisations.bgcolor === "#ffffff" ? "black" : "",
-            color: customisations.bgcolor === "#ffffff" ? "white" : "",
+              customisations?.bgcolor === "#ffffff" ? "black" : "",
+            color: customisations?.bgcolor === "#ffffff" ? "white" : "",
             display: !user && introSubmitted ? "none" : "",
           }}
           className="receiver-chat"
@@ -233,8 +228,8 @@ const ChatBox = () => {
               <div
                 style={{
                   backgroundColor:
-                    customisations.bgcolor === "#ffffff" ? "black" : "",
-                  color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                    customisations?.bgcolor === "#ffffff" ? "black" : "",
+                  color: customisations?.bgcolor === "#ffffff" ? "white" : "",
                 }}
                 className="introduction"
               >
@@ -274,9 +269,9 @@ const ChatBox = () => {
                     }
                     style={{
                       backgroundColor:
-                        customisations.bgcolor === "#ffffff" ? "black" : "",
+                        customisations?.bgcolor === "#ffffff" ? "black" : "",
                       color:
-                        customisations.bgcolor === "#ffffff" ? "white" : "",
+                        customisations?.bgcolor === "#ffffff" ? "white" : "",
                     }}
                     type="text"
                     placeholder="your phone"
@@ -295,9 +290,9 @@ const ChatBox = () => {
                     }
                     style={{
                       backgroundColor:
-                        customisations.bgcolor === "#ffffff" ? "black" : "",
+                        customisations?.bgcolor === "#ffffff" ? "black" : "",
                       color:
-                        customisations.bgcolor === "#ffffff" ? "white" : "",
+                        customisations?.bgcolor === "#ffffff" ? "white" : "",
                     }}
                     type="text"
                     placeholder="example@gmail.com"
@@ -317,8 +312,8 @@ const ChatBox = () => {
               <div
                 style={{
                   backgroundColor:
-                    customisations.bgcolor === "#ffffff" ? "black" : "",
-                  color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                    customisations?.bgcolor === "#ffffff" ? "black" : "",
+                  color: customisations?.bgcolor === "#ffffff" ? "white" : "",
                 }}
                 className="introduction"
               >
@@ -348,9 +343,9 @@ const ChatBox = () => {
                     value={user.phone || "+91 1234567890"}
                     style={{
                       backgroundColor:
-                        customisations.bgcolor === "#ffffff" ? "black" : "",
+                        customisations?.bgcolor === "#ffffff" ? "black" : "",
                       color:
-                        customisations.bgcolor === "#ffffff" ? "white" : "",
+                        customisations?.bgcolor === "#ffffff" ? "white" : "",
                     }}
                     type="text"
                     placeholder="your phone"
@@ -364,9 +359,9 @@ const ChatBox = () => {
                     value={user?.email || ""}
                     style={{
                       backgroundColor:
-                        customisations.bgcolor === "#ffffff" ? "black" : "",
+                        customisations?.bgcolor === "#ffffff" ? "black" : "",
                       color:
-                        customisations.bgcolor === "#ffffff" ? "white" : "",
+                        customisations?.bgcolor === "#ffffff" ? "white" : "",
                     }}
                     type="text"
                     placeholder="example@gmail.com"

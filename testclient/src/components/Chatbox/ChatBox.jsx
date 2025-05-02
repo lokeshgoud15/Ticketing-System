@@ -4,17 +4,17 @@ import { FiSend } from "react-icons/fi";
 import "./ChatBox.css";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import profile from "../../assets/assets/profile.png";
 
 const ChatBox = () => {
   const user = useSelector((store) => store.user.user);
 
-  const [messageSent, setMessageSent] = useState(false);
   const [Allmessages, setAllMessages] = useState([]);
   const [introSubmitted, setIntroSubmitted] = useState(false);
   const lastMessageRef = useRef(null);
   const chatBoxRef = useRef(null);
+  const [customisations, setCustomisations] = useState({});
 
   useEffect(() => {
     if (lastMessageRef.current) {
@@ -39,8 +39,6 @@ const ChatBox = () => {
       };
     }
   });
-
-  const customisations = useSelector((store) => store.chatbox.customisations);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -100,7 +98,6 @@ const ChatBox = () => {
       if (data.success) {
         toast.success(data.message);
 
-        setMessageSent((prev) => !prev);
         setNewTicket((prev) => ({ ...prev, description: "" }));
         fetchMessages(ticketData);
       }
@@ -114,14 +111,17 @@ const ChatBox = () => {
   const fetchMessages = async (ticketData = newTicket) => {
     if (ticketData.createdBy.email) {
       try {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/messages`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({ newTicket: ticketData }),
-        });
+        const res = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/messages`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({ newTicket: ticketData }),
+          }
+        );
         const data = await res.json();
         setAllMessages(data.messages || []);
       } catch (error) {
@@ -158,13 +158,36 @@ const ChatBox = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchCustomisations = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/chatbox/customisations`,
+          {
+            method: "GET",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch chatbox customisations");
+        }
+        const data = await response.json();
+        setCustomisations(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchCustomisations();
+  }, []);
   return (
     <div className="chat-box" ref={chatBoxRef}>
       <div
         className="chat-head"
         style={{
-          backgroundColor: customisations.headerColor,
-          color: customisations.headerColor === "#ffffff" ? "black" : "",
+          backgroundColor: customisations?.headerColor,
+          color: customisations?.headerColor === "#ffffff" ? "black" : "",
         }}
       >
         <div className="profile-image">
@@ -175,7 +198,7 @@ const ChatBox = () => {
       </div>
       <div
         className="chat-body"
-        style={{ backgroundColor: customisations.bgcolor }}
+        style={{ backgroundColor: customisations?.bgcolor }}
       >
         <div className="sender-chat">
           <img src={ellipse} alt="" className="ellipse" />
@@ -184,28 +207,28 @@ const ChatBox = () => {
               className="each-message"
               style={{
                 backgroundColor:
-                  customisations.bgcolor === "#ffffff" ? "black" : "",
-                color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                  customisations?.bgcolor === "#ffffff" ? "black" : "",
+                color: customisations?.bgcolor === "#ffffff" ? "white" : "",
               }}
             >
-              {customisations.message1}
+              {customisations?.message1}
             </p>
             <p
               style={{
                 backgroundColor:
-                  customisations.bgcolor === "#ffffff" ? "black" : "",
-                color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                  customisations?.bgcolor === "#ffffff" ? "black" : "",
+                color: customisations?.bgcolor === "#ffffff" ? "white" : "",
               }}
               className="each-message"
             >
-              {customisations.message2}
+              {customisations?.message2}
             </p>
             {!user && (
               <p
                 style={{
                   backgroundColor:
-                    customisations.bgcolor === "#ffffff" ? "black" : "",
-                  color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                    customisations?.bgcolor === "#ffffff" ? "black" : "",
+                  color: customisations?.bgcolor === "#ffffff" ? "white" : "",
                 }}
                 className="each-message"
               >
@@ -218,8 +241,8 @@ const ChatBox = () => {
         <div
           style={{
             backgroundColor:
-              customisations.bgcolor === "#ffffff" ? "black" : "",
-            color: customisations.bgcolor === "#ffffff" ? "white" : "",
+              customisations?.bgcolor === "#ffffff" ? "black" : "",
+            color: customisations?.bgcolor === "#ffffff" ? "white" : "",
             display: !user && introSubmitted ? "none" : "",
           }}
           className="receiver-chat"
@@ -230,8 +253,8 @@ const ChatBox = () => {
               <div
                 style={{
                   backgroundColor:
-                    customisations.bgcolor === "#ffffff" ? "black" : "",
-                  color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                    customisations?.bgcolor === "#ffffff" ? "black" : "",
+                  color: customisations?.bgcolor === "#ffffff" ? "white" : "",
                 }}
                 className="introduction"
               >
@@ -271,9 +294,9 @@ const ChatBox = () => {
                     }
                     style={{
                       backgroundColor:
-                        customisations.bgcolor === "#ffffff" ? "black" : "",
+                        customisations?.bgcolor === "#ffffff" ? "black" : "",
                       color:
-                        customisations.bgcolor === "#ffffff" ? "white" : "",
+                        customisations?.bgcolor === "#ffffff" ? "white" : "",
                     }}
                     type="text"
                     placeholder="your phone"
@@ -292,9 +315,9 @@ const ChatBox = () => {
                     }
                     style={{
                       backgroundColor:
-                        customisations.bgcolor === "#ffffff" ? "black" : "",
+                        customisations?.bgcolor === "#ffffff" ? "black" : "",
                       color:
-                        customisations.bgcolor === "#ffffff" ? "white" : "",
+                        customisations?.bgcolor === "#ffffff" ? "white" : "",
                     }}
                     type="text"
                     placeholder="example@gmail.com"
@@ -314,8 +337,8 @@ const ChatBox = () => {
               <div
                 style={{
                   backgroundColor:
-                    customisations.bgcolor === "#ffffff" ? "black" : "",
-                  color: customisations.bgcolor === "#ffffff" ? "white" : "",
+                    customisations?.bgcolor === "#ffffff" ? "black" : "",
+                  color: customisations?.bgcolor === "#ffffff" ? "white" : "",
                 }}
                 className="introduction"
               >
@@ -345,9 +368,9 @@ const ChatBox = () => {
                     value={user.phone || "+91 1234567890"}
                     style={{
                       backgroundColor:
-                        customisations.bgcolor === "#ffffff" ? "black" : "",
+                        customisations?.bgcolor === "#ffffff" ? "black" : "",
                       color:
-                        customisations.bgcolor === "#ffffff" ? "white" : "",
+                        customisations?.bgcolor === "#ffffff" ? "white" : "",
                     }}
                     type="text"
                     placeholder="your phone"
@@ -361,9 +384,9 @@ const ChatBox = () => {
                     value={user?.email || ""}
                     style={{
                       backgroundColor:
-                        customisations.bgcolor === "#ffffff" ? "black" : "",
+                        customisations?.bgcolor === "#ffffff" ? "black" : "",
                       color:
-                        customisations.bgcolor === "#ffffff" ? "white" : "",
+                        customisations?.bgcolor === "#ffffff" ? "white" : "",
                     }}
                     type="text"
                     placeholder="example@gmail.com"

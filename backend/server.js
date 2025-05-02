@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.Routes.js";
 import teamRoutes from "./routes/team.Routes.js";
 import ticketRoutes from "./routes/ticket.Routes.js";
 import messageRoutes from "./routes/Messages.Routes.js";
+import chatboxCustomisationRoutes from "./routes/chatboxCustomisation.routes.js";
 import connectDB from "./utils/db.js";
 dotenv.config();
 const app = express();
@@ -20,7 +21,7 @@ const corsOptions = {
     "https://ticketing-system-test.vercel.app",
     "https://ticketing-system-test-git-main-lokeshs-projects-f594ae13.vercel.app",
     "https://ticketing-system-lokeshs-projects-f594ae13.vercel.app",
-    "https://ticketing-system-dusky.vercel.app"
+    "https://ticketing-system-dusky.vercel.app",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -39,6 +40,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/team", teamRoutes);
 app.use("/api/ticket", ticketRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/chatbox", chatboxCustomisationRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is running!");

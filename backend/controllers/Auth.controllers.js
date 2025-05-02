@@ -139,9 +139,10 @@ export const login = async (req, res) => {
 export const logout = async (req, res) => {
   res
     .status(200)
-    .clearCookie("token", {
+    .clearCookie("authToken", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     })
     .json({ message: "Logout successful", success: true });
 };

@@ -2,26 +2,17 @@ import "./ChatBot.css";
 import ellipse from "../../assets/ellipse.png";
 import ChatBox from "../ChatBox/ChatBox";
 import { MdEdit } from "react-icons/md";
-import { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  setBgColor,
-  setHeaderColor,
-  setMessage1,
-  setMessage2,
-  setMissedChatTimer,
-  setWelcomeMsg,
-} from "../../Slices/ChatbotcustomSlice";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+
 
 let colors = ["#ffffff", "#000000", "#33475b"];
 let bgcolors = ["#ffffff", "#000000", "#eeeeee"];
 
-
-
 const Chatbot = () => {
-  const customisations = useSelector((store) => store.chatbox.customisations);
+  const [customisations, setCustomisations] = useState(null);
   const user = useSelector((store) => store.user.user);
-  const dispatch = useDispatch();
+
 
   const [edit1, setEdit1] = useState(false);
   const [edit2, setEdit2] = useState(false);
@@ -47,13 +38,12 @@ const Chatbot = () => {
   const [seconds, setSeconds] = useState(0);
 
   const handleSave = () => {
-    dispatch(
-      setMissedChatTimer(
-        `${hours < 10 ? "0" + hours : hours}-${
-          minutes < 10 ? "0" + minutes : minutes
-        }-${seconds < 10 ? "0" + seconds : seconds}`
-      )
-    );
+    setCustomisations((prev) => ({
+      ...prev,
+      missedChatTimer: `${hours < 10 ? "0" + hours : hours}-${
+        minutes < 10 ? "0" + minutes : minutes
+      }-${seconds < 10 ? "0" + seconds : seconds}`,
+    }));
   };
 
   const generateOptions = (max) => {
@@ -64,16 +54,78 @@ const Chatbot = () => {
     ));
   };
 
+  useEffect(() => {
+    const fetchCustomisations = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/chatbox/customisations`,
+          {
+            method: "GET",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch chatbox customisations");
+        }
+        const data = await response.json();
+        setCustomisations(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchCustomisations();
+  }, []);
+
+  useEffect(() => {
+    if (!customisations) return;
+    const timer = setTimeout(() => {
+      const updateCustomisationsAPI = async () => {
+        try {
+          const response = await fetch(
+            `http://localhost:5000/api/chatbox/customisations/${user._id}`,
+            {
+              method: "PUT",
+              credentials: "include",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(customisations),
+            }
+          );
+          if (!response.ok) {
+            throw new Error("Failed to update customisations");
+          }
+          const result = await response.json();
+          setCustomisations(result?.customisations);
+        } catch (error) {
+          console.error("Error updating customisations:", error);
+        }
+      };
+      updateCustomisationsAPI();
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [
+    customisations?.headerColor,
+    customisations?.bgcolor,
+    customisations?.message1,
+    customisations?.message2,
+    customisations?.welcomeMsg,
+    customisations?.missedChatTimer,
+  ]);
+
   return (
     <div className="chatbot-container">
       <h3 className="chatbot-text">Chat Bot</h3>
       <div className="chatbot-box">
         <div className="chatbot-left">
-          <ChatBox />
+          <ChatBox customisations={customisations} />
           <div className="chatbot-intro">
             <button className="close">X</button>
             <img src={ellipse} alt="" className="ellipse-image" />
-            <p> {customisations.welcomeMsg}</p>
+            <p> {customisations?.welcomeMsg}</p>
           </div>
         </div>
         <div className="chatbot-right">
@@ -83,9 +135,12 @@ const Chatbot = () => {
               {colors.map((each, index) => (
                 <div className="index" key={index}>
                   <p
-                    onClick={() => {
-                      dispatch(setHeaderColor(each));
-                    }}
+                    onClick={() =>
+                      setCustomisations((prev) => ({
+                        ...prev,
+                        headerColor: each,
+                      }))
+                    }
                     className="each-color"
                     style={{ backgroundColor: each }}
                   ></p>
@@ -95,12 +150,15 @@ const Chatbot = () => {
             <div className="color-input">
               <p
                 className="selected-color"
-                style={{ backgroundColor: customisations.headerColor }}
+                style={{ backgroundColor: customisations?.headerColor }}
               ></p>
               <input
                 readOnly
                 type="text"
-                value={customisations.headerColor.toUpperCase()}
+                value={customisations?.headerColor?.toUpperCase()}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -111,9 +169,12 @@ const Chatbot = () => {
               {bgcolors.map((each, index) => (
                 <div key={index} className="index">
                   <p
-                    onClick={() => {
-                      dispatch(setBgColor(each));
-                    }}
+                    onClick={() =>
+                      setCustomisations((prev) => ({
+                        ...prev,
+                        bgcolor: each,
+                      }))
+                    }
                     className="each-color"
                     style={{ backgroundColor: each }}
                   ></p>
@@ -123,12 +184,12 @@ const Chatbot = () => {
             <div className="color-input">
               <p
                 className="selected-color"
-                style={{ backgroundColor: customisations.bgcolor }}
+                style={{ backgroundColor: customisations?.bgcolor }}
               ></p>
               <input
                 readOnly
                 type="text"
-                value={customisations.bgcolor.toUpperCase()}
+                value={customisations?.bgcolor.toUpperCase()}
               />
             </div>
           </div>
@@ -141,10 +202,13 @@ const Chatbot = () => {
                 ref={inputfocus1}
                 type="text"
                 className="intro-text"
-                value={customisations.message1}
-                onChange={(e) => {
-                  dispatch(setMessage1(e.target.value));
-                }}
+                value={customisations?.message1}
+                onChange={(e) =>
+                  setCustomisations((prev) => ({
+                    ...prev,
+                    message1: e.target.value,
+                  }))
+                }
               />
               <MdEdit
                 onClick={(e) => {
@@ -165,10 +229,13 @@ const Chatbot = () => {
                 ref={inputfocus2}
                 type="text"
                 className="intro-text"
-                value={customisations.message2}
-                onChange={(e) => {
-                  dispatch(setMessage2(e.target.value));
-                }}
+                value={customisations?.message2}
+                onChange={(e) =>
+                  setCustomisations((prev) => ({
+                    ...prev,
+                    message2: e.target.value,
+                  }))
+                }
               />
               <MdEdit
                 onClick={(e) => {
@@ -226,10 +293,13 @@ const Chatbot = () => {
             <p>Welcome Message</p>
             <div style={{ position: "relative" }}>
               <textarea
-                value={customisations.welcomeMsg}
-                onChange={(e) => {
-                  dispatch(setWelcomeMsg(e.target.value));
-                }}
+                value={customisations?.welcomeMsg}
+                onChange={(e) =>
+                  setCustomisations((prev) => ({
+                    ...prev,
+                    welcomeMsg: e.target.value,
+                  }))
+                }
                 name=""
                 id=""
               ></textarea>
