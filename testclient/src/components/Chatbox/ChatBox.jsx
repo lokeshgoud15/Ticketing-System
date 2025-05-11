@@ -24,14 +24,14 @@ const ChatBox = () => {
 
   const [newTicket, setNewTicket] = useState(() => {
     try {
-      const mydetails = JSON.parse(localStorage.getItem("mydetails"));
+      const mydetails = JSON.parse(sessionStorage.getItem("mydetails"));
       return {
         createdBy: mydetails || { name: "", phone: "", email: "" },
         description: "",
         title: "",
       };
     } catch (error) {
-      console.error("Error parsing localStorage data:", error);
+      console.error("Error parsing sessionStorage data:", error);
       return {
         createdBy: { name: "", phone: "", email: "" },
         description: "",
@@ -50,7 +50,7 @@ const ChatBox = () => {
       toast.error("Please fill in all fields.");
       return;
     }
-    localStorage.setItem("mydetails", JSON.stringify(newTicket.createdBy));
+    sessionStorage.setItem("mydetails", JSON.stringify(newTicket.createdBy));
     toast.success("Details saved successfully!");
     setIntroSubmitted(true);
   };
@@ -70,7 +70,7 @@ const ChatBox = () => {
 
     const ticketTitle = `Ticket#${currentYear}-0${TodaysMonth}${TodaysDate}-${currentHours}${currentMinutes}${currentSeconds}`;
 
-    const mydetails = JSON.parse(localStorage.getItem("mydetails")) || {
+    const mydetails = JSON.parse(sessionStorage.getItem("mydetails")) || {
       name: "",
       phone: "",
       email: "",
@@ -131,7 +131,7 @@ const ChatBox = () => {
   };
 
   useEffect(() => {
-    const mydetails = JSON.parse(localStorage.getItem("mydetails"));
+    const mydetails = JSON.parse(sessionStorage.getItem("mydetails"));
     if (mydetails) {
       setNewTicket((prev) => ({ ...prev, createdBy: mydetails }));
       setIntroSubmitted(true);
