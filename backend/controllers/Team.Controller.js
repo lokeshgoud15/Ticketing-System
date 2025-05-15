@@ -85,10 +85,7 @@ export const getAllTeamMembers = async (req, res) => {
       });
     }
 
-    const members = await User.find(
-      { _id: { $in: team.members } },
-      "-password -confirmPassword"
-    );
+    const members = await InviterMembers.find({},"-password -confirmPassword");
 
     return res.status(200).json({
       message: "Team members retrieved successfully",
@@ -134,7 +131,9 @@ export const deleteUser = async (req, res) => {
     if (!userTodelete || !userInInvitedMembers) {
       return res.status(404).json({ message: "User not found" });
     }
-    return res.status(200).json({ success:true,message: "User deleted successfully" });
+    return res
+      .status(200)
+      .json({ success: true, message: "User deleted successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal server error" });

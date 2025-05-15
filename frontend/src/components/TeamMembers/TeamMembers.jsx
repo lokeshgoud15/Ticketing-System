@@ -55,7 +55,9 @@ const TeamMembers = ({
         <div className="team-member-headings team-member-image">
           <img src={profile} alt="" />
         </div>
-        <div className="team-member-headings">{`${firstname}${" "}${lastname}`}</div>
+        <div className="team-member-headings">{`${firstname}${" "}${
+          lastname ? lastname : ""
+        }`}</div>
         <div className="team-member-headings">+1 (000) 000-0000</div>
         <div className="team-member-headings email">{email}</div>
         <div className="team-member-headings">{role}</div>
