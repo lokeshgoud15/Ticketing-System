@@ -4,7 +4,7 @@ A comprehensive ticketing and customer support management platform designed to s
 
 ## 🚀 Live Demo
 
-- **Frontend-Client (Vercel)**: [https://client.app](https://vercel.com/lokeshs-projects-f594ae13/ticketing-system-test/HFiJgfcjAEaqTwchrLX5kK8HwZgt)
+- **Frontend-Client (Vercel)**: [https://client.app](https://ticketing-system-test-git-main-lokeshs-projects-f594ae13.vercel.app/)
 - **Frontend-Admin (Vercel)**: [https://admin.app](https://ticketing-system-app-1-git-main-lokeshs-projects-f594ae13.vercel.app/)
 
 
