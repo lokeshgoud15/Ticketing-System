@@ -77,8 +77,8 @@ A comprehensive ticketing and customer support management platform designed to s
 ### 1. Clone the repository
 
 
--git clone https://github.com/lokeshgoud15/Ticketing-System.git
--cd ticketing-system
+- git clone https://github.com/lokeshgoud15/Ticketing-System.git
+- cd ticketing-system
 
 ### 2. Install Dependencies
 
