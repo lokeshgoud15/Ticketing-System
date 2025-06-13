@@ -4,8 +4,8 @@ A comprehensive ticketing and customer support management platform designed to s
 
 ## 🚀 Live Demo
 
-- **Frontend-Client (Vercel)**: [https://your-vercel-link.vercel.app](https://vercel.com/lokeshs-projects-f594ae13/ticketing-system-test/HFiJgfcjAEaqTwchrLX5kK8HwZgt)
-- **Frontend-Admin (Vercel)**: [https://your-vercel-link.vercel.app](https://ticketing-system-app-1-git-main-lokeshs-projects-f594ae13.vercel.app/)
+- **Frontend-Client (Vercel)**: [https://client.app](https://vercel.com/lokeshs-projects-f594ae13/ticketing-system-test/HFiJgfcjAEaqTwchrLX5kK8HwZgt)
+- **Frontend-Admin (Vercel)**: [https://admin.app](https://ticketing-system-app-1-git-main-lokeshs-projects-f594ae13.vercel.app/)
 
 
 
@@ -77,39 +77,39 @@ A comprehensive ticketing and customer support management platform designed to s
 ### 1. Clone the repository
 
 
-git clone https://github.com/lokeshgoud15/Ticketing-System.git
-cd ticketing-system
+-git clone https://github.com/lokeshgoud15/Ticketing-System.git
+-cd ticketing-system
 
 ### 2. Install Dependencies
 
 Client --
-cd frontend/testclient
-npm install
-npm run dev
+- cd frontend/testclient
+- npm install
+- npm run dev
 
 Server--
-cd ../server
-npm install
-npm run dev
+- cd ../server
+- npm install
+- npm run dev
 
 
 ### 3. Create Environment Variables
 For the server (server/.env)
 
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-CLIENT_URL=http://localhost:3000
+- MONGO_URI=your_mongodb_uri
+- JWT_SECRET=your_jwt_secret
+- CLIENT_URL=http://localhost:3000
 
 
 ## ✨ Key Highlights
-Modular and scalable design
+- Modular and scalable design
 
-Secure JWT authentication
+- Secure JWT authentication
 
-Role-based access control
+- Role-based access control
 
-Reusable React components
+- Reusable React components
 
-Real-time features (chat system)
+- Real-time features (chat system)
 
-RESTful API structure
+- RESTful API structure
