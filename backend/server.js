@@ -15,9 +15,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: [
-    "https://ticketing-system-5x7cm3b5a-lokeshs-projects-f594ae13.vercel.app/",
-    "https://ticketing-system-git-main-lokeshs-projects-f594ae13.vercel.app/",
-    "https://ticketing-system-app-1.vercel.app/login",
+    "https://ticketing-system-app-1.vercel.app",
+    "http://localhost:5173",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
