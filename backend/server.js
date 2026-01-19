@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: [
     "https://ticketing-system-app-1.vercel.app",
+    "https://ticketing-system-test.vercel.app/",
     "http://localhost:5173",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
